@@ -66,7 +66,7 @@ function sendPostRequest(email) {
             console.error(`Error al realizar la solicitud: ${error.message}`);
         });
 
-        const browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+        const browser = await puppeteer.launch({ headless: 'new', defaultViewport: null });
         const page = await browser.newPage();
         await page.setViewport({ width: 1366, height: 768 });
         await page.goto('https://auth.evaluar.com/auth/realms/evcore/protocol/openid-connect/auth?client_id=evcap&redirect_uri=https%3A%2F%2Fapp.evaluar.com%2Fauth%2Flogin&state=4b0daa7a-a789-4a53-b9ec-1daf16c5d5ec&response_mode=fragment&response_type=code&scope=openid&nonce=93c94f83-036a-4be4-95ec-2d8995d5b12b');
